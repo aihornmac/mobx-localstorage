@@ -21,35 +21,35 @@ function asLocalStorage () {
 
   const store = map(cloneLocalStorage());
 
-  const localStorage = {
+  class LocalStorage {
     get length () {
       return localStorage.length;
-    },
+    }
 
     getItem (key) {
       return this.get(key);
-    },
+    }
 
     setItem (key, value) {
       return this.set(key, value);
-    },
+    }
 
     removeItem (key) {
       return this.delete(key);
-    },
+    }
 
     clear () {
       localStorage.clear();
       store.clear();
-    },
+    }
 
     has (key) {
       return store.has(key);
-    },
+    }
 
     get (key) {
       return store.get(key);
-    },
+    }
 
     set (key, value) {
       const json = JSON.stringify(
@@ -57,39 +57,39 @@ function asLocalStorage () {
       );
       localStorage.setItem(key, json);
       store.set(key, value);
-    },
+    }
 
     delete (key) {
       localStorage.removeItem(key);
       store.delete(key);
-    },
+    }
 
     keys () {
       return store.keys();
-    },
+    }
 
     values () {
       return store.values();
-    },
+    }
 
     entries () {
       return store.entries();
-    },
+    }
 
     forEach (...args) {
       return store.forEach(...args);
-    },
+    }
 
     get size () {
       return store.size;
-    },
+    }
 
     toJS () {
       return store.toJS();
-    },
-  };
+    }
+  }
 
-  return Object.create(localStorage);
+  return new LocalStorage();
 
   function feed (key, newValue, oldValue) {
     if (newValue === null) {
