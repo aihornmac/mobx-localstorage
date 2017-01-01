@@ -1,4 +1,4 @@
-import { observable, action, map, toJS } from 'mobx';
+const { observable, action, map, toJS } = require('mobx');
 
 class LocalStorage {
   @observable _state = map(cloneLocalStorage());
@@ -94,7 +94,7 @@ class LocalStorage {
   }
 }
 
-export default new LocalStorage();
+module.exports = new LocalStorage();
 
 function listen (cb) {
   if (window.addEventListener) {
