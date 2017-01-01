@@ -1,106 +1,116 @@
-const { observable, action, map, toJS } = require('mobx');
+const { map, toJS } = require('mobx');
 
-class LocalStorage {
-  @observable _state = map(cloneLocalStorage());
-  @observable _listeners = [];
+const ENV = typeof window !== 'undefined' ? window : (
+  typeof global !== 'undefined' ? global : undefined
+);
 
-  get length () {
-    return localStorage.length;
-  }
+if (!ENV) {
+  throw new Error('unknown environment');
+}
 
-  getItem (key) {
-    return this.get(key);
-  }
+if ('localStorage' in ENV) {
+  module.exports = asLocalStorage();
+} else {
+  console.error(`You environment doesn't support localStorage`); // eslint-disable-line no-console
+}
 
-  setItem (key, value) {
-    return this.set(key, value);
-  }
+function asLocalStorage () {
+  listen(({ key, newValue, oldValue }) => {
+    feed(key, newValue, oldValue);
+  });
 
-  removeItem (key) {
-    return this.delete(key);
-  }
+  const store = map(cloneLocalStorage());
 
-  clear () {
-    localStorage.clear();
-    this._state.clear();
-  }
+  const localStorage = {
+    get length () {
+      return localStorage.length;
+    },
 
-  has (key) {
-    return this._state.has(key);
-  }
+    getItem (key) {
+      return this.get(key);
+    },
 
-  get (key) {
-    return this._state.get(key);
-  }
+    setItem (key, value) {
+      return this.set(key, value);
+    },
 
-  set (key, value) {
-    const json = JSON.stringify(
-      toJS(value)
-    );
-    localStorage.setItem(key, json);
-    this._state.set(key, value);
-  }
+    removeItem (key) {
+      return this.delete(key);
+    },
 
-  delete (key) {
-    localStorage.removeItem(key);
-    this._state.delete(key);
-  }
+    clear () {
+      localStorage.clear();
+      store.clear();
+    },
 
-  keys () {
-    return this._state.keys();
-  }
+    has (key) {
+      return store.has(key);
+    },
 
-  values () {
-    return this._state.values();
-  }
+    get (key) {
+      return store.get(key);
+    },
 
-  entries () {
-    return this._state.entries();
-  }
+    set (key, value) {
+      const json = JSON.stringify(
+        toJS(value)
+      );
+      localStorage.setItem(key, json);
+      store.set(key, value);
+    },
 
-  forEach (...args) {
-    return this._state.forEach(...args);
-  }
+    delete (key) {
+      localStorage.removeItem(key);
+      store.delete(key);
+    },
 
-  get size () {
-    return this._state.size;
-  }
+    keys () {
+      return store.keys();
+    },
 
-  toJS () {
-    return this._state.toJS();
-  }
+    values () {
+      return store.values();
+    },
 
-  @action _feed (key, newValue, oldValue) {
-    const state = this._state;
+    entries () {
+      return store.entries();
+    },
+
+    forEach (...args) {
+      return store.forEach(...args);
+    },
+
+    get size () {
+      return store.size;
+    },
+
+    toJS () {
+      return store.toJS();
+    },
+  };
+
+  return Object.create(localStorage);
+
+  function feed (key, newValue, oldValue) {
     if (newValue === null) {
       if (oldValue === null) {
-        console.warn(`localStorage: unexpected event type`); // eslint-disable-line
+        console.warn(`localStorage: unexpected event type`); // eslint-disable-line no-console
       } else {
-        state.delete(key);
+        store.delete(key);
       }
     } else {
-      state.set(key, parseValue(newValue));
-    }
-  }
-
-  constructor () {
-    if ('localStorage' in window) {
-      listen(({ key, newValue, oldValue }) => {
-        this._feed(key, newValue, oldValue);
-      });
-    } else {
-      throw new Error(`You browser doesn't support localStorage`); // eslint-disable-line
+      store.set(key, parseValue(newValue));
     }
   }
 }
 
-module.exports = new LocalStorage();
-
 function listen (cb) {
-  if (window.addEventListener) {
-    window.addEventListener('storage', cb, true);
+  if (ENV.addEventListener) {
+    ENV.addEventListener('storage', cb, true);
+  } else if (ENV.attachEvent) {
+    ENV.attachEvent('storage', cb);
   } else {
-    window.attachEvent('storage', cb);
+    console.error(`You environment doesn't support event listener`); // eslint-disable-line no-console
   }
 }
 
