@@ -1,6 +1,11 @@
 # mobx-localstorage
 A declarative reactive localStorage using MobX
 
+#### Install
+```bash
+npm i -S mobx-localstorage
+```
+
 #### Features
 * Higher performance than native getter
 * Synchronize with external changes
