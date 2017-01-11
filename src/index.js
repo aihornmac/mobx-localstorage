@@ -83,10 +83,6 @@ function asLocalStorage () {
     get size () {
       return store.size;
     }
-
-    toJS () {
-      return store.toJS();
-    }
   }
 
   return new LocalStorage();
