@@ -1,4 +1,4 @@
-const { map, toJS } = require('mobx');
+const { ObservableMap, toJS } = require('mobx');
 
 const ENV = typeof window !== 'undefined' ? window : (
   typeof global !== 'undefined' ? global : undefined
@@ -19,7 +19,7 @@ function asLocalStorage () {
     feed(key, newValue, oldValue);
   });
 
-  const store = map(cloneLocalStorage());
+  const store = new ObservableMap(cloneLocalStorage());
 
   class LocalStorage {
     get length () {
