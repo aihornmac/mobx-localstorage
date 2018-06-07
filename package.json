@@ -3,15 +3,18 @@
   "version": "0.1.7",
   "description": "A declarative reactive localStorage using MobX",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "build": "babel src --out-dir lib",
-    "watch": "npm run build -- --watch",
-    "prepublish": "rm -rf lib && npm run build"
+    "build": "rm -rf lib && tsc --pretty -p src/tsconfig.json && rm -rf es && tsc --pretty -p src/tsconfig.es.json"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aihornmac/mobx-localstorage.git"
   },
+  "files": [
+    "lib",
+    "es"
+  ],
   "keywords": [
     "mobx",
     "localstorage"
@@ -23,17 +26,14 @@
   },
   "homepage": "https://github.com/aihornmac/mobx-localstorage#readme",
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-eslint": "^7.1.1",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-stage-0": "^6.16.0",
-    "eslint": "^3.12.2",
-    "eslint-plugin-babel": "^4.0.0",
-    "mobx": "^3.0.0",
-    "mocha": "^3.2.0"
+    "@types/node": "^10.3.1",
+    "mobx": "^4.3.1",
+    "mocha": "^3.2.0",
+    "tslint": "^5.10.0",
+    "tslint-eslint-rules": "^5.3.1",
+    "typescript": "^2.9.1"
   },
   "peerDependencies": {
-    "mobx": "^3.0.0"
+    "mobx": "^3.0.0 || ^4.0.0 || ^5.0.0"
   }
 }

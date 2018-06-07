@@ -1,0 +1,164 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended",
+    "tslint-eslint-rules"
+  ],
+  "jsRules": {},
+  "rules": {
+    "array-bracket-spacing": [
+      true,
+      "never",
+      {
+        "arraysInArrays": false,
+        "singleValue": false,
+        "objectsInArrays": false
+      }
+    ],
+    "array-type": [
+      true,
+      "array-simple"
+    ],
+    "arrow-parens": [
+      true,
+      "ban-single-arg-parens"
+    ],
+    "arrow-return-shorthand": true,
+    "ban": [
+      true,
+      {
+        "name": "parseInt",
+        "message": "tsstyle#type-coercion"
+      },
+      {
+        "name": "parseFloat",
+        "message": "tsstyle#type-coercion"
+      },
+      {
+        "name": "Array",
+        "message": "tsstyle#array-constructor"
+      }
+    ],
+    "ban-types": [
+      true, [
+        "Object",
+        "Use {} instead."
+      ],
+      [
+        "String",
+        "Use 'string' instead."
+      ],
+      [
+        "Number",
+        "Use 'number' instead."
+      ],
+      [
+        "Boolean",
+        "Use 'boolean' instead."
+      ]
+    ],
+    "block-spacing": [
+      true,
+      "always"
+    ],
+    "class-name": false,
+    "curly": [
+      true,
+      "ignore-same-line"
+    ],
+    "forin": true,
+    "import-spacing": true,
+    "interface-name": [
+      true,
+      "never-prefix"
+    ],
+    "jsdoc-format": true,
+    "label-position": true,
+    "max-classes-per-file": false,
+    "member-access": [
+      true,
+      "no-public"
+    ],
+    "new-parens": true,
+    "no-angle-bracket-type-assertion": true,
+    "no-any": false,
+    "no-arg": true,
+    "no-bitwise": false,
+    "no-conditional-assignment": true,
+    "no-console": [true, "log", "error", "time", "trace"],
+    "no-construct": true,
+    "no-debugger": true,
+    "no-default-export": false,
+    "no-duplicate-variable": true,
+    "no-inferrable-types": true,
+    "no-multi-spaces": true,
+    "no-namespace": [
+      true,
+      "allow-declarations"
+    ],
+    "no-reference": true,
+    "no-return-await": true,
+    "no-string-literal": true,
+    "no-string-throw": true,
+    "no-trailing-whitespace": true,
+    "no-unnecessary-initializer": true,
+    "no-unused-expression": false,
+    "no-var-keyword": true,
+    "object-curly-spacing": [true, "always"],
+    "object-literal-shorthand": true,
+    "object-literal-sort-keys": false,
+    "only-arrow-functions": [
+      true,
+      "allow-declarations",
+      "allow-named-functions"
+    ],
+    "one-variable-per-declaration": [true, "ignore-for-loop"],
+    "ordered-imports": [
+      false
+    ],
+    "prefer-const": true,
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "radix": true,
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "switch-default": true,
+    "ter-arrow-spacing": [true, {
+      "before": true,
+      "after": true
+    }],
+    "trailing-comma": false,
+    "triple-equals": [
+      true,
+      "allow-null-check",
+      "allow-undefined-check"
+    ],
+    "use-isnan": true,
+    "variable-name": [
+      true,
+      "check-format",
+      "ban-keywords",
+      "allow-leading-underscore",
+      "allow-trailing-underscore",
+      "allow-pascal-case",
+      "allow-snake-case"
+    ],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-module",
+      "check-separator",
+      "check-rest-spread",
+      "check-type",
+      "check-typecast",
+      "check-type-operator",
+      "check-preblock"
+    ]
+  }
+}
