@@ -54,7 +54,8 @@ export class LocalStorage extends ObservableMap<any> implements Storage {
   }
 
   setItem(key: string, value: any) {
-    localStorage.setItem(key, value)
+    const json = JSON.stringify(value)
+    localStorage.setItem(key, json)
     super.set(key, value)
   }
 
