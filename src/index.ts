@@ -1,5 +1,4 @@
-import { ObservableMap, toJS } from 'mobx'
-import { shallowEnhancer } from 'mobx/lib/types/modifiers'
+import { ObservableMap, toJS, observable } from 'mobx'
 
 const ENV = typeof window !== 'undefined' ? window : (
   typeof global !== 'undefined' ? global : undefined
@@ -17,11 +16,13 @@ if (process.env.NODE_ENV !== 'production') {
 
 const localStorage = (ENV as any).localStorage as Storage
 
+const referenceEnhancer = observable.map({}, { deep: false }).enhancer
+
 export class LocalStorage extends ObservableMap<any> implements Storage {
   namespace = ''
 
   constructor() {
-    super(cloneLocalStorage(), shallowEnhancer, 'LocalStorage')
+    super(cloneLocalStorage(), referenceEnhancer, 'LocalStorage')
 
     listen(({ key, newValue, oldValue }) => {
       feed(this, key, newValue, oldValue)
