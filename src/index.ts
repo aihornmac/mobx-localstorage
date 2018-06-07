@@ -133,23 +133,27 @@ export function parseValue(value: any) {
 export function makeSyncLocalstorage(localstorage: LocalStorage, namespace: string) {
   return function syncLocalstorage(target: {}, key: string) {
     const descriptor = Object.getOwnPropertyDescriptor(target, key) || {}
-    let isInitalized = 'value' in descriptor
     delete descriptor.value
     const itemKey = `${namespace} ${key}`
     Object.defineProperty(target, key, {
       ...descriptor,
-      get() {
+      get(this: any) {
         return localstorage.getItem(itemKey)
       },
-      set(value: any) {
-        if (!isInitalized) {
-          isInitalized = true
+      set(this: any, value: any) {
+        const map = getInitializedMap(this)
+        if (!map[key]) {
+          map[key] = true
           if (localstorage.has(itemKey)) return
         }
         localstorage.setItem(itemKey, value)
       },
     })
   }
+}
+
+export function getInitializedMap(target: any) {
+  return target.__mobx_localstorage || (target.__mobx_localstorage = {})
 }
 
 export default new LocalStorage()
