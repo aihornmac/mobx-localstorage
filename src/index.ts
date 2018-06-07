@@ -1,4 +1,5 @@
 import { ObservableMap, toJS } from 'mobx'
+import { shallowEnhancer } from 'mobx/lib/types/modifiers'
 
 const ENV = typeof window !== 'undefined' ? window : (
   typeof global !== 'undefined' ? global : undefined
@@ -20,7 +21,7 @@ export class LocalStorage extends ObservableMap<any> implements Storage {
   namespace = ''
 
   constructor() {
-    super(cloneLocalStorage())
+    super(cloneLocalStorage(), shallowEnhancer, 'LocalStorage')
 
     listen(({ key, newValue, oldValue }) => {
       feed(this, key, newValue, oldValue)
