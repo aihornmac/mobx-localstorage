@@ -9,7 +9,7 @@ if (!ENV) {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-  if ('localStorage' in ENV) {
+  if (!('localStorage' in ENV)) {
     console.warn(`You environment doesn't support localStorage`)
   }
 }
