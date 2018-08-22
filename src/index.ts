@@ -5,7 +5,13 @@ const referenceEnhancer = observable.map({}, { deep: false }).enhancer
 
 export class LocalStorage extends ObservableMap<any> implements Storage {
   constructor() {
-    super(cloneLocalStorage(), referenceEnhancer, 'LocalStorage')
+    super(undefined, referenceEnhancer, 'LocalStorage')
+    const len = localStorage.length
+    for (let i = 0; i < len; i++) {
+      const key = localStorage.key(i)!
+      const value = parseValue(localStorage.getItem(key))
+      super.set(key, value)
+    }
     localStorage.on('change', (key, value) => {
       if (typeof value === 'string') {
         super.set(key, parseValue(value))
@@ -50,18 +56,6 @@ export class LocalStorage extends ObservableMap<any> implements Storage {
     localStorage.removeItem(key)
     return has
   }
-}
-
-export function cloneLocalStorage() {
-  const state: { [key: string]: any } = {}
-  const len = localStorage.length
-  for (let i = 0; i < len; i++) {
-    const key = localStorage.key(i)!
-    state[key] = parseValue(
-      localStorage.getItem(key)
-    )
-  }
-  return state
 }
 
 export function parseValue(value: any) {
