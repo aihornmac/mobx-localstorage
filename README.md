@@ -3,6 +3,9 @@ A declarative reactive localStorage using MobX
 
 #### Install
 ```bash
+yarn add mobx-localstorage
+```
+```bash
 npm i -S mobx-localstorage
 ```
 
@@ -14,8 +17,8 @@ npm i -S mobx-localstorage
 #### Usage
 Same as native but can be observed by MobX
 ```js
-const { autorun } = require('mobx');
-const localStorage = require('mobx-localstorage');
+import { autorun } from 'mobx';
+import localStorage from 'mobx-localstorage';
 
 autorun(() => {
   console.log(localStorage.getItem('foo'));
