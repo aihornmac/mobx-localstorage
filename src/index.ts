@@ -30,7 +30,7 @@ export class LocalStorage extends ObservableMap<any> implements Storage {
   }
 
   getItem(key: string) {
-    return super.get(key)
+    return super.has(key) ? super.get(key) : null
   }
 
   setItem(key: string, value: any) {
