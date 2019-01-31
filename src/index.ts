@@ -39,7 +39,7 @@ export class LocalStorage extends ObservableMap<any> implements Storage {
   }
 
   removeItem(key: string) {
-    return super.delete(key)
+    this.delete(key)
   }
 
   @action
