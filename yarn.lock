@@ -24,6 +24,11 @@ ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
+arg@^4.1.0:
+  version "4.1.0"
+  resolved "http://registry.npm.taobao.org/arg/download/arg-4.1.0.tgz#583c518199419e0037abb74062c37f8519e575f0"
+  integrity sha1-WDxRgZlBngA3q7dAYsN/hRnldfA=
+
 argparse@^1.0.7:
   version "1.0.10"
   resolved "http://registry.npm.taobao.org/argparse/download/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911"
@@ -52,6 +57,11 @@ brace-expansion@^1.1.7:
 browser-stdout@1.3.0:
   version "1.3.0"
   resolved "http://registry.npm.taobao.org/browser-stdout/download/browser-stdout-1.3.0.tgz#f351d32969d32fa5d7a5567154263d928ae3bd1f"
+
+buffer-from@^1.0.0:
+  version "1.1.1"
+  resolved "http://registry.npm.taobao.org/buffer-from/download/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
+  integrity sha1-MnE7wCj3XAL9txDXx7zsHyxgcO8=
 
 builtin-modules@^1.1.1:
   version "1.1.1"
@@ -99,6 +109,11 @@ concat-map@0.0.1:
   version "0.0.1"
   resolved "http://registry.npm.taobao.org/concat-map/download/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
 
+core-js@^0.8.3:
+  version "0.8.4"
+  resolved "http://registry.npm.taobao.org/core-js/download/core-js-0.8.4.tgz#c22665f1e0d1b9c3c5e1b08dabd1f108695e4fcf"
+  integrity sha1-wiZl8eDRucPF4bCNq9HxCGleT88=
+
 debug@2.6.8:
   version "2.6.8"
   resolved "http://registry.npm.taobao.org/debug/download/debug-2.6.8.tgz#e731531ca2ede27d188222427da17821d68ff4fc"
@@ -109,7 +124,7 @@ diff@3.2.0:
   version "3.2.0"
   resolved "http://registry.npm.taobao.org/diff/download/diff-3.2.0.tgz#c9ce393a4b7cbd0b058a725c93df299027868ff9"
 
-diff@^3.2.0:
+diff@^3.1.0, diff@^3.2.0:
   version "3.5.0"
   resolved "http://registry.npm.taobao.org/diff/download/diff-3.5.0.tgz#800c0dd1e0a8bfbc95835c202ad220fe317e5a12"
 
@@ -119,6 +134,11 @@ doctrine@0.7.2:
   dependencies:
     esutils "^1.1.6"
     isarray "0.0.1"
+
+dom-walk@^0.1.0:
+  version "0.1.1"
+  resolved "http://registry.npm.taobao.org/dom-walk/download/dom-walk-0.1.1.tgz#672226dc74c8f799ad35307df936aba11acd6018"
+  integrity sha1-ZyIm3HTI95mtNTB9+TaroRrNYBg=
 
 escape-string-regexp@1.0.5, escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   version "1.0.5"
@@ -161,6 +181,14 @@ glob@^7.1.1:
     minimatch "^3.0.4"
     once "^1.3.0"
     path-is-absolute "^1.0.0"
+
+global@^4.3.2:
+  version "4.3.2"
+  resolved "http://registry.npm.taobao.org/global/download/global-4.3.2.tgz#e76989268a6c74c38908b1305b10fc0e394e9d0f"
+  integrity sha1-52mJJopsdMOJCLEwWxD8DjlOnQ8=
+  dependencies:
+    min-document "^2.19.0"
+    process "~0.5.1"
 
 "graceful-readlink@>= 1.0.0":
   version "1.0.1"
@@ -265,6 +293,18 @@ lodash.keys@^3.0.0:
     lodash.isarguments "^3.0.0"
     lodash.isarray "^3.0.0"
 
+make-error@^1.1.1:
+  version "1.3.5"
+  resolved "http://registry.npm.taobao.org/make-error/download/make-error-1.3.5.tgz#efe4e81f6db28cadd605c70f29c831b58ef776c8"
+  integrity sha1-7+ToH22yjK3WBccPKcgxtY73dsg=
+
+min-document@^2.19.0:
+  version "2.19.0"
+  resolved "http://registry.npm.taobao.org/min-document/download/min-document-2.19.0.tgz#7bd282e3f5842ed295bb748cdd9f1ffa2c824685"
+  integrity sha1-e9KC4/WELtKVu3SM3Z8f+iyCRoU=
+  dependencies:
+    dom-walk "^0.1.0"
+
 minimatch@^3.0.2, minimatch@^3.0.4:
   version "3.0.4"
   resolved "http://registry.npm.taobao.org/minimatch/download/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
@@ -281,9 +321,10 @@ mkdirp@0.5.1:
   dependencies:
     minimist "0.0.8"
 
-mobx@^4.3.1:
-  version "4.3.1"
-  resolved "http://registry.npm.taobao.org/mobx/download/mobx-4.3.1.tgz#334e5aab4916b1d43f0faf3605a64b1b4b3ccb8d"
+mobx@5:
+  version "5.9.0"
+  resolved "http://registry.npm.taobao.org/mobx/download/mobx-5.9.0.tgz#a08edd7132787f771409c9c33788a5df66ff7ce7"
+  integrity sha1-oI7dcTJ4f3cUCcnDN4il32b/fOc=
 
 mocha@^3.2.0:
   version "3.5.3"
@@ -301,6 +342,14 @@ mocha@^3.2.0:
     lodash.create "3.1.1"
     mkdirp "0.5.1"
     supports-color "3.1.2"
+
+mock-local-storage@^1.1.8:
+  version "1.1.8"
+  resolved "http://registry.npm.taobao.org/mock-local-storage/download/mock-local-storage-1.1.8.tgz#82a3f7c666bf955d64b286cb71207478f1a29bf7"
+  integrity sha1-gqP3xma/lV1ksobLcSB0ePGim/c=
+  dependencies:
+    core-js "^0.8.3"
+    global "^4.3.2"
 
 ms@2.0.0:
   version "2.0.0"
@@ -320,6 +369,11 @@ path-parse@^1.0.5:
   version "1.0.5"
   resolved "http://registry.npm.taobao.org/path-parse/download/path-parse-1.0.5.tgz#3c1adf871ea9cd6c9431b6ea2bd74a0ff055c4c1"
 
+process@~0.5.1:
+  version "0.5.2"
+  resolved "http://registry.npm.taobao.org/process/download/process-0.5.2.tgz#1638d8a8e34c2f440a91db95ab9aeb677fc185cf"
+  integrity sha1-FjjYqONML0QKkduVq5rrZ3/Bhc8=
+
 reactive-localstorage@^0.0.2:
   version "0.0.2"
   resolved "http://registry.npm.taobao.org/reactive-localstorage/download/reactive-localstorage-0.0.2.tgz#4ab8c5736d0ff4013f177dbbfba33742b7f0f34c"
@@ -333,6 +387,19 @@ resolve@^1.3.2:
 semver@^5.3.0:
   version "5.5.0"
   resolved "http://registry.npm.taobao.org/semver/download/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
+
+source-map-support@^0.5.6:
+  version "0.5.10"
+  resolved "http://registry.npm.taobao.org/source-map-support/download/source-map-support-0.5.10.tgz#2214080bc9d51832511ee2bab96e3c2f9353120c"
+  integrity sha1-IhQIC8nVGDJRHuK6uW48L5NTEgw=
+  dependencies:
+    buffer-from "^1.0.0"
+    source-map "^0.6.0"
+
+source-map@^0.6.0:
+  version "0.6.1"
+  resolved "http://registry.npm.taobao.org/source-map/download/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
+  integrity sha1-dHIq8y6WFOnCh6jQu95IteLxomM=
 
 sprintf-js@~1.0.2:
   version "1.0.3"
@@ -359,6 +426,17 @@ supports-color@^5.3.0:
   resolved "http://registry.npm.taobao.org/supports-color/download/supports-color-5.4.0.tgz#1c6b337402c2137605efe19f10fec390f6faab54"
   dependencies:
     has-flag "^3.0.0"
+
+ts-node@^8.0.2:
+  version "8.0.2"
+  resolved "http://registry.npm.taobao.org/ts-node/download/ts-node-8.0.2.tgz#9ecdf8d782a0ca4c80d1d641cbb236af4ac1b756"
+  integrity sha1-ns3414KgykyA0dZBy7I2r0rBt1Y=
+  dependencies:
+    arg "^4.1.0"
+    diff "^3.1.0"
+    make-error "^1.1.1"
+    source-map-support "^0.5.6"
+    yn "^3.0.0"
 
 tslib@1.9.0:
   version "1.9.0"
@@ -412,3 +490,8 @@ typescript@^2.9.1:
 wrappy@1:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/wrappy/download/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
+
+yn@^3.0.0:
+  version "3.0.0"
+  resolved "http://registry.npm.taobao.org/yn/download/yn-3.0.0.tgz#0073c6b56e92aed652fbdfd62431f2d6b9a7a091"
+  integrity sha1-AHPGtW6SrtZS+9/WJDHy1rmnoJE=

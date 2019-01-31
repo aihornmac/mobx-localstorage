@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build": "rm -rf lib && tsc --pretty -p src/tsconfig.json && rm -rf es && tsc --pretty -p src/tsconfig.es.json"
+    "build": "rm -rf lib && tsc --pretty -p src/tsconfig.json && rm -rf es && tsc --pretty -p src/tsconfig.es.json",
+    "test": "mocha -r ts-node/register/transpile-only -r mock-local-storage test/**/*.test.ts"
   },
   "repository": {
     "type": "git",
@@ -28,9 +29,11 @@
   "devDependencies": {
     "@types/mocha": "^5.2.4",
     "@types/node": "^10.3.1",
-    "mobx": "^4.3.1",
+    "mobx": "5",
     "mocha": "^3.2.0",
+    "mock-local-storage": "^1.1.8",
     "reactive-localstorage": "^0.0.2",
+    "ts-node": "^8.0.2",
     "tslint": "^5.10.0",
     "tslint-eslint-rules": "^5.3.1",
     "typescript": "^2.9.1"
