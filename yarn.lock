@@ -6,9 +6,21 @@
   version "5.2.4"
   resolved "http://registry.npm.taobao.org/@types/mocha/download/@types/mocha-5.2.4.tgz#2f8fbdf95c69ebf82150a7864864010f186745bf"
 
+"@types/node@*":
+  version "10.12.20"
+  resolved "http://registry.npm.taobao.org/@types/node/download/@types/node-10.12.20.tgz#f79f959acd3422d0889bd1ead1664bd2d17cd367"
+  integrity sha1-95+Vms00ItCIm9Hq0WZL0tF802c=
+
 "@types/node@^10.3.1":
   version "10.3.1"
   resolved "http://registry.npm.taobao.org/@types/node/download/@types/node-10.3.1.tgz#51092fbacaed768a122a293814474fbf6e5e8b6d"
+
+"@types/uuid@^3.4.4":
+  version "3.4.4"
+  resolved "http://registry.npm.taobao.org/@types/uuid/download/@types/uuid-3.4.4.tgz#7af69360fa65ef0decb41fd150bf4ca5c0cefdf5"
+  integrity sha1-evaTYPpl7w3stB/RUL9MpcDO/fU=
+  dependencies:
+    "@types/node" "*"
 
 ansi-regex@^2.0.0:
   version "2.1.1"
@@ -486,6 +498,11 @@ tsutils@^2.12.1:
 typescript@^2.9.1:
   version "2.9.1"
   resolved "http://registry.npm.taobao.org/typescript/download/typescript-2.9.1.tgz#fdb19d2c67a15d11995fd15640e373e09ab09961"
+
+uuid@^3.3.2:
+  version "3.3.2"
+  resolved "http://registry.npm.taobao.org/uuid/download/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
+  integrity sha1-G0r0lV6zB3xQHCOHL8ZROBFYcTE=
 
 wrappy@1:
   version "1.0.2"
