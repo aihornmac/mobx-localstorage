@@ -3,16 +3,15 @@ import localStorage from 'reactive-localstorage'
 
 const referenceEnhancer = observable.map({}, { deep: false }).enhancer
 
-export class LocalStorage extends ObservableMap<any> implements Storage {
+export class LocalStorage extends ObservableMap<string> implements Storage {
   constructor() {
-    const entries: Array<[string, any]> = []
+    super(undefined, referenceEnhancer, 'LocalStorage')
     const len = localStorage.length
     for (let i = 0; i < len; i++) {
       const key = localStorage.key(i)!
       const value = parseValue(localStorage.getItem(key))
-      entries.push([key, value])
+      super.set(key, value)
     }
-    super(entries, referenceEnhancer, 'LocalStorage')
     localStorage.on('change', action((key: string, value: string | null) => {
       if (typeof value === 'string') {
         super.set(key, parseValue(value))
