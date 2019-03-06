@@ -3658,10 +3658,10 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-reactive-localstorage@^0.1.0-beta.0:
-  version "0.1.0-beta.0"
-  resolved "http://registry.npm.taobao.org/reactive-localstorage/download/reactive-localstorage-0.1.0-beta.0.tgz#e8ddeb4a5503dbb3b74d8c3a724a4d1034ac8828"
-  integrity sha1-6N3rSlUD27O3TYw6ckpNEDSsiCg=
+reactive-localstorage@^0.1.0-beta.1:
+  version "0.1.0-beta.1"
+  resolved "http://registry.npm.taobao.org/reactive-localstorage/download/reactive-localstorage-0.1.0-beta.1.tgz#dd97a1c0b3bf50df137a3daf07478efc0ee07866"
+  integrity sha1-3ZehwLO/UN8Tej2vB0eO/A7geGY=
 
 read-pkg-up@^3.0.0:
   version "3.0.0"

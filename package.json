@@ -47,7 +47,7 @@
     "webpack-serve": "^2.0.3"
   },
   "dependencies": {
-    "reactive-localstorage": "^0.1.0-beta.0"
+    "reactive-localstorage": "^0.1.0-beta.1"
   },
   "peerDependencies": {
     "mobx": "^3.0.0 || ^4.0.0 || ^5.0.0"

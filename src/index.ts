@@ -12,11 +12,15 @@ export class LocalStorage implements Map<string, any>, Storage {
   private _is_all_keys_observed = false
 
   constructor() {
-    localStorage.on('change', action((key: string, value: string | null) => {
-      if (typeof value === 'string') {
-        this._set(key, value)
+    localStorage.on('change', action((key: string | null, value: string | null) => {
+      if (typeof key === 'string') {
+        if (typeof value === 'string') {
+          this._set(key, value)
+        } else {
+          this._delete(key)
+        }
       } else {
-        this._delete(key)
+        this._clear()
       }
     }))
   }
@@ -47,19 +51,6 @@ export class LocalStorage implements Map<string, any>, Storage {
     this.delete(key)
   }
 
-  @action
-  clear() {
-    this._keysAtom.reportChanged()
-    localStorage.clear()
-    this._keys.clear()
-    for (const box of this._keyBoxes.values()) {
-      box.set(false)
-    }
-    for (const box of this._valueBoxes.values()) {
-      box.set(null)
-    }
-  }
-
   has(key: string) {
     return this._get_key_box(key).get()
   }
@@ -83,6 +74,11 @@ export class LocalStorage implements Map<string, any>, Storage {
     )
     localStorage.removeItem(key)
     return has
+  }
+
+  @action
+  clear() {
+    localStorage.clear()
   }
 
   keys() {
@@ -143,6 +139,17 @@ export class LocalStorage implements Map<string, any>, Storage {
     }
   }
 
+  private _clear() {
+    this._keysAtom.reportChanged()
+    this._keys.clear()
+    for (const box of this._keyBoxes.values()) {
+      box.set(false)
+    }
+    for (const box of this._valueBoxes.values()) {
+      box.set(null)
+    }
+  }
+
   private _get_key_box(key: string) {
     const boxes = this._keyBoxes
     let box = boxes.get(key)
@@ -152,7 +159,7 @@ export class LocalStorage implements Map<string, any>, Storage {
           ? false
           : typeof localStorage.getItem(key) === 'string'
       )
-      box = observable.box(value)
+      boxes.set(key, box = observable.box(value))
     }
     return box
   }
@@ -162,7 +169,7 @@ export class LocalStorage implements Map<string, any>, Storage {
     let box = boxes.get(key)
     if (!box) {
       const value = this._is_all_keys_observed ? null : localStorage.getItem(key)
-      box = observable.box(parseValue(value))
+      boxes.set(key, box = observable.box(parseValue(value)))
     }
     return box
   }
