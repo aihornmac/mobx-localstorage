@@ -7,7 +7,7 @@ configure({ enforceActions: 'always' })
 
 describe('enforceActions: always', () => {
   it('feeds should work fine', () => {
-    rls.feed('a', uuidv4())
+    rls.feed('a', uuidv4(), null)
   })
 
   it('set should work fine', () => {

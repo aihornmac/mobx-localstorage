@@ -7,7 +7,7 @@
   "scripts": {
     "start": "webpack-serve --open --config dev/webpack.config.js",
     "build": "rm -rf lib && tsc --pretty -p src/tsconfig.json && rm -rf es && tsc --pretty -p src/tsconfig.es.json",
-    "test": "mocha -r ts-node/register/transpile-only -r mock-local-storage test/**/*.test.ts"
+    "test": "mocha -r ts-node/register/transpile-only -r test/mock-localstorage.ts test/**/*.test.ts"
   },
   "repository": {
     "type": "git",
@@ -28,26 +28,26 @@
   },
   "homepage": "https://github.com/aihornmac/mobx-localstorage#readme",
   "devDependencies": {
-    "@types/mocha": "^5.2.4",
-    "@types/node": "^10.3.1",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^11.10.4",
     "@types/uuid": "^3.4.4",
     "happypack": "^5.0.1",
     "html-webpack-plugin": "^3.2.0",
     "mobx": "5",
-    "mocha": "^3.2.0",
+    "mocha": "^6.0.2",
     "mock-local-storage": "^1.1.8",
     "reactive-localstorage": "^0.0.2",
     "ts-loader": "^5.3.3",
     "ts-node": "^8.0.2",
-    "tslint": "^5.10.0",
-    "tslint-eslint-rules": "^5.3.1",
-    "typescript": "^2.9.1",
+    "tslint": "^5.13.1",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "^3.3.3333",
     "uuid": "^3.3.2",
     "webpack": "^4.29.6",
     "webpack-serve": "^2.0.3"
   },
   "dependencies": {
-    "reactive-localstorage": "^0.0.2"
+    "reactive-localstorage": "^0.1.0-beta.0"
   },
   "peerDependencies": {
     "mobx": "^3.0.0 || ^4.0.0 || ^5.0.0"
