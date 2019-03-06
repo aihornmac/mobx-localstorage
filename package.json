@@ -1,6 +1,6 @@
 {
   "name": "mobx-localstorage",
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0-alpha.1",
   "description": "A declarative reactive localStorage using MobX",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
