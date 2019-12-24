@@ -28,3 +28,12 @@ localStorage.setItem('foo', 'bar');
 
 // print bar
 ```
+
+By default `mobx-localstorage` treats value as JSON, due to historical reasons. Since `v1.2.0` user can specify custom parser and stringifier.
+
+```js
+localStorage.configure({
+  parser: x => x,
+  stringify: x => String(x),
+})
+```
